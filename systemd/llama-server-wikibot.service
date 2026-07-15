@@ -3,7 +3,7 @@ Description=Llama.cpp Server (Qwen 0.5B for Wikibot)
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/llama-server -m %h/.local/share/models/qwen2.5-0.5b-instruct.gguf -c 2048 -ngl 99 --port 8080
+ExecStart=/usr/bin/llama-server -m /usr/share/models/qwen2.5-0.5b-instruct-q8_0.gguf -c 2048 -ngl 99 --port 8080
 Restart=always
 RestartSec=3
 

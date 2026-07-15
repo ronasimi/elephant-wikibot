@@ -1,0 +1,19 @@
+post_install() {
+    echo "========================================================="
+    echo "1. Enable the local LLM server to start with your session:"
+    echo "   systemctl --user enable --now llama-server-wikibot.service"
+    echo ""
+    echo "2. Link the Lua provider to your Elephant configuration:"
+    echo "   mkdir -p ~/.config/elephant/menus"
+    echo "   ln -sf /usr/share/elephant-wikibot/wikibot.lua ~/.config/elephant/menus/"
+    echo ""
+    echo "3. Add the following to ~/.config/walker/config.toml:"
+    echo "   [[providers.prefixes]]"
+    echo "   prefix = \"?\""
+    echo "   provider = \"menus:wikibot\""
+    echo "========================================================="
+}
+
+post_upgrade() {
+    post_install
+}
